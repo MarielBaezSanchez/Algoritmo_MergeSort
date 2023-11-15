@@ -6,6 +6,7 @@ public class MergeSort {
 
         return new int[5];
     }
+    //recibe dos subarrays y los une en
     public int [] Merge(int a, int [] b){
 
         return new int[5];
