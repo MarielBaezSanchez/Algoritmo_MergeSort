@@ -3,6 +3,8 @@ package mergesort;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class main {
     public static void main(String[] args) {
@@ -25,19 +27,23 @@ public class main {
 
     // Método para leer un array de números desde un archivo
     private static int[] readArrayFromFile(String filePath) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line = reader.readLine();
-            String[] numbers = line.split(" ");
+        List<Integer> numbersList = new ArrayList<>();
 
-            int[] array = new int[numbers.length];
-            for (int i = 0; i < numbers.length; i++) {
-                array[i] = Integer.parseInt(numbers[i]);
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                int number = Integer.parseInt(line.trim());
+                numbersList.add(number);
+                System.out.println("Número leído: " + number);
             }
 
-            return array;
-        } catch (IOException e) {
+        } catch (IOException | NumberFormatException e) {
             e.printStackTrace();
-            return null;
         }
+        System.out.println("+--------------------------------+");
+        System.out.println("Números ordenados:");
+
+        // Convertir la lista a un array de int
+        return numbersList.stream().mapToInt(Integer::intValue).toArray();
     }
 }
