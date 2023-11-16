@@ -11,6 +11,7 @@ public class main {
         MergeSort mg = new MergeSort();
 
         // Ruta del archivo
+        //String filePath = "C:\merge\\archiv.txt";//el archivo
         String filePath = "C:\\Users\\stell\\IdeaProjects\\Algoritmo\\archiv.txt";//el archivo
 
         // Lee los datos del archivo
